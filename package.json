@@ -1,0 +1,14 @@
+{
+  "name": "cypress-parodify",
+  "version": "1.0.0",
+  "description": "Projeto de testes de aceitação do app Parodify",
+  "main": "index.js",
+  "scripts": {
+    "test": "npx cypress open"
+  },
+  "author": "Rafael Conte",
+  "license": "MIT",
+  "devDependencies": {
+    "cypress": "^9.0.0"
+  }
+}
