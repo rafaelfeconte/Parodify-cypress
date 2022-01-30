@@ -9,6 +9,7 @@
   "author": "Rafael Conte",
   "license": "MIT",
   "devDependencies": {
-    "cypress": "^9.0.0"
+    "cypress": "^9.0.0",
+    "faker": "^5.5.3"
   }
 }
