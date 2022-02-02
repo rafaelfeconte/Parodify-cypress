@@ -7,13 +7,18 @@ class AutenticacaoPage {
         cy.get('.is-size-5:first-child').should('be.visible')
     }
 
-    souldBeMessageIsDanger(messageText){
+    shouldBeMessageIsDanger(messageText){
         cy.get('.is-danger .message-body p').should('have.text', messageText)
     }
  
-    souldBeMessageIsWarning(messageText){
+    shouldBeMessageIsWarning(messageText){
         cy.get('.message-body p').should('have.text', messageText)
     }
+
+    shouldBeMessage(messageText){
+        cy.contains('.is-danger .message-body', messageText).should('be.visible')
+    }
+
 }
 
 export default new AutenticacaoPage;

@@ -9,8 +9,20 @@ describe('login', ()=>{
 
       login.go()
       login.signup(user)
+      login.rememberData()
       autenticacao.submit()
       autenticacao.shouldBeText()
+    })
+    it.skip("email e senha incorretos", ()=>{
+
+      var user = loginFactories.login()
+      user.email = "rafaelcontee@bol.com"
+      user.password = "123"
+
+      login.go()
+      login.signup(user)
+      autenticacao.submit()
+      autenticacao.shouldBeMessage('Oops! Email e/ou senha incorretos.')
 
     })
 })

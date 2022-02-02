@@ -22,7 +22,7 @@ describe ('cadastro', ()=>{
         cadastro.go()
         cadastro.fillform(usuario)
         autenticacao.submit()
-        autenticacao.souldBeMessageIsDanger('Oops! Email já cadastrado.')
+        autenticacao.shouldBeMessageIsDanger('Oops! Email já cadastrado.')
 
     })
 
@@ -33,7 +33,7 @@ describe ('cadastro', ()=>{
         cadastro.go()
         cadastro.fillform(usuario)
         autenticacao.submit()
-        autenticacao.souldBeMessageIsWarning('Oops! Informe seu email.')
+        autenticacao.shouldBeMessageIsWarning('Oops! Informe seu email.')
     })
 
     it('senhas não são iguais', ()=>{
@@ -44,7 +44,7 @@ describe ('cadastro', ()=>{
         cadastro.go()
         cadastro.fillform(usuario)
         autenticacao.submit()
-        autenticacao.souldBeMessageIsWarning('Oops! Senhas não são iguais.')
+        autenticacao.shouldBeMessageIsWarning('Oops! Senhas não são iguais.')
     })
 
     it('senha não informada', ()=>{
@@ -55,13 +55,13 @@ describe ('cadastro', ()=>{
         cadastro.go()
         cadastro.fillform(top)
         autenticacao.submit()
-        autenticacao.souldBeMessageIsWarning('Oops! Informe sua senha.')
+        autenticacao.shouldBeMessageIsWarning('Oops! Informe sua senha.')
     })
 
     it('email e senha não informados', ()=>{
 
         cadastro.go()
         autenticacao.submit()
-        autenticacao.souldBeMessageIsWarning('Oops! Informe seu email e sua senha.')
+        autenticacao.shouldBeMessageIsWarning('Oops! Informe seu email e sua senha.')
     })
 })
