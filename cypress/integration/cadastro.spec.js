@@ -1,7 +1,9 @@
 
 import cadastro from '../support/pages/CadastroPage'
-import autenticacao from '../support/pages/components/Autenticacao.Page'
+import commun from '../support/pages/components/CommunPage'
+import home from '../support/pages/homePage'
 import cadastroFactories from '../factories/CadastroFactories'
+
 
 describe ('cadastro', ()=>{
     it('cadastrando usuário', ()=>{
@@ -10,8 +12,8 @@ describe ('cadastro', ()=>{
 
         cadastro.go()
         cadastro.fillform(usuario)
-        autenticacao.submit()
-        autenticacao.shouldBeText()
+        commun.submit()
+        home.shouldBeText()
 
     })
     it('email já cadastrado', function (){
@@ -21,8 +23,8 @@ describe ('cadastro', ()=>{
 
         cadastro.go()
         cadastro.fillform(usuario)
-        autenticacao.submit()
-        autenticacao.shouldBeMessageIsDanger('Oops! Email já cadastrado.')
+        commun.submit()
+        commun.shouldBeMessageIsDanger('Oops! Email já cadastrado.')
 
     })
 
@@ -32,8 +34,8 @@ describe ('cadastro', ()=>{
 
         cadastro.go()
         cadastro.fillform(usuario)
-        autenticacao.submit()
-        autenticacao.shouldBeMessageIsWarning('Oops! Informe seu email.')
+        commun.submit()
+        commun.shouldBeMessageIsWarning('Oops! Informe seu email.')
     })
 
     it('senhas não são iguais', ()=>{
@@ -43,8 +45,8 @@ describe ('cadastro', ()=>{
 
         cadastro.go()
         cadastro.fillform(usuario)
-        autenticacao.submit()
-        autenticacao.shouldBeMessageIsWarning('Oops! Senhas não são iguais.')
+        commun.submit()
+        commun.shouldBeMessageIsWarning('Oops! Senhas não são iguais.')
     })
 
     it('senha não informada', ()=>{
@@ -54,14 +56,14 @@ describe ('cadastro', ()=>{
 
         cadastro.go()
         cadastro.fillform(top)
-        autenticacao.submit()
-        autenticacao.shouldBeMessageIsWarning('Oops! Informe sua senha.')
+        commun.submit()
+        commun.shouldBeMessageIsWarning('Oops! Informe sua senha.')
     })
 
     it('email e senha não informados', ()=>{
 
         cadastro.go()
-        autenticacao.submit()
-        autenticacao.shouldBeMessageIsWarning('Oops! Informe seu email e sua senha.')
+        commun.submit()
+        commun.shouldBeMessageIsWarning('Oops! Informe seu email e sua senha.')
     })
 })

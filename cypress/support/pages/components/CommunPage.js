@@ -1,10 +1,6 @@
-class AutenticacaoPage {
+class CommunPage{
     submit() {
         cy.get('input[name="commit"]').click()
-    }
-
-    shouldBeText() {
-        cy.get('.is-size-5:first-child').should('be.visible')
     }
 
     shouldBeMessageIsDanger(messageText){
@@ -19,6 +15,22 @@ class AutenticacaoPage {
         cy.contains('.is-danger .message-body', messageText).should('be.visible')
     }
 
+    buttonSearch(){
+        cy.get('a[href$="new"]').click()
+    }
+
+    buttonHome(){
+        cy.get('a[href="/"]').click()
+    }
+
+    buttonFavorite(){
+        cy.get('a[href*="favorites"]').click()
+    }
+
+    shouldBeNameMusic(nameMusic){
+        cy.contains('.column h2.is-size-5', nameMusic).should('be.visible')
+    }
+
 }
 
-export default new AutenticacaoPage;
+export default new CommunPage;

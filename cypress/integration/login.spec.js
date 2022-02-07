@@ -1,4 +1,5 @@
-import autenticacao from '../support/pages/components/Autenticacao.Page'
+import commun from '../support/pages/components/CommunPage'
+import home from '../support/pages/homePage'
 import login from '../support/pages/LoginPage'
 import loginFactories from '../factories/LoginFactories'
 
@@ -10,10 +11,10 @@ describe('login', ()=>{
       login.go()
       login.signup(user)
       login.rememberData()
-      autenticacao.submit()
-      autenticacao.shouldBeText()
+      commun.submit()
+      home.shouldBeText()
     })
-    it.skip("email e senha incorretos", ()=>{
+    it("email e senha incorretos", ()=>{
 
       var user = loginFactories.login()
       user.email = "rafaelcontee@bol.com"
@@ -21,8 +22,8 @@ describe('login', ()=>{
 
       login.go()
       login.signup(user)
-      autenticacao.submit()
-      autenticacao.shouldBeMessage('Oops! Email e/ou senha incorretos.')
+      commun.submit()
+      commun.shouldBeMessage('Oops! Email e/ou senha incorretos.')
 
     })
 })
