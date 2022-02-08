@@ -1,7 +1,7 @@
 class LoginPage{
 
     go(){
-        cy.visit('https://parodify.herokuapp.com/users/sign_in')
+        cy.visit('/users/sign_in')
     }
 
     signup(login){

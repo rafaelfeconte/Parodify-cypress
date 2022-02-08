@@ -1,7 +1,7 @@
 class CadastroPage {
     
     go(){
-        cy.visit('https://parodify.herokuapp.com/')
+        cy.visit('/')
         cy.get('.is-white').should('have.text', 'Login')
         cy.get('.is-rounded').click()
     }
